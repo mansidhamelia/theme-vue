@@ -17,6 +17,11 @@ const props = defineProps({
         type: Boolean,
         default: false,
     },
+    themeColor: {
+        type: String,
+        default:
+            'blue'
+    },
 
 })
 
@@ -38,9 +43,9 @@ const enabled = computed({
 
             <span aria-hidden="true" class="pointer-events-none absolute h-full w-full rounded-md bg-white" />
             <span aria-hidden="true"
-                :class="[enabled ? 'bg-blue-400 ' : 'bg-gray-200', 'pointer-events-none absolute mx-auto h-3 w-7 rounded-full transition-colors duration-200 ease-in-out']" />
+                :class="[enabled && themeColor === 'blue' ? 'bg-blue-400 ' : themeColor === 'red' ? 'bg-red-400' : 'bg-gray-200', 'pointer-events-none absolute mx-auto h-3 w-7 rounded-full transition-colors duration-200 ease-in-out']" />
             <span aria-hidden="true"
-                :class="[enabled ? 'translate-x-5 bg-blue-600 border border-blue-600' : 'translate-x-0', 'pointer-events-none absolute left-0 inline-block h-5 w-5 transform rounded-full border border-gray-200 bg-white shadow ring-0 transition-transform duration-200 ease-in-out']" />
+                :class="[enabled && themeColor === 'blue' ? 'translate-x-5 bg-blue-600 border border-blue-600' : themeColor === 'red' ? 'translate-x-5 bg-red-600 border border-red-600' : 'translate-x-0', 'pointer-events-none absolute left-0 inline-block h-5 w-5 transform rounded-full border border-gray-200 bg-white shadow ring-0 transition-transform duration-200 ease-in-out']" />
         </Switch>
 
         <span v-if="labelRight" class="ml-3 cursor-pointer" :class="labelClass">

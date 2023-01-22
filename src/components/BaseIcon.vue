@@ -21,5 +21,5 @@ const icon = computed(() => props.isSolid ? heroIconsSolid[props.name] : heroIco
 </script>
 
 <template>
-    <component :is="icon" v-if="isLoaded" class="" />
+    <component :is="icon" v-if="isLoaded" />
 </template>

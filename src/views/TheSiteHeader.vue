@@ -37,7 +37,7 @@ const selectedIndex = ref(0)
 
 
 const logoStyle = computed(() => {
-  switch (themeStore.one) {
+  switch (themeStore.logo) {
     case 'Left':
       return `mr-auto`
       break

@@ -1,15 +1,11 @@
 <script lang="ts" setup>
 import { Ref, computed } from 'vue';
+import { useThemeStore } from '@/store/index'
+
+const themeStore = useThemeStore()
 
 const props = defineProps({
-    download: {
-        type: Boolean,
-        default: false,
-    },
-    contentLoading: {
-        type: Boolean,
-        default: false,
-    },
+
     defaultClass: {
         type: String,
         default:
@@ -17,10 +13,6 @@ const props = defineProps({
     },
 
     disabled: {
-        type: Boolean,
-        default: false,
-    },
-    rounded: {
         type: Boolean,
         default: false,
     },
@@ -49,42 +41,32 @@ const sizeClass = computed(() => {
     }
 })
 
-const placeHolderSize = computed(() => {
-    switch (props.size) {
-        case 'xs':
-            return '32'
-        case 'sm':
-            return '38'
-        case 'md':
-            return '42'
-        case 'lg':
-            return '42'
-        case 'xl':
-            return '46'
-        default:
-            return ''
-    }
-})
+
 
 const variantClass = computed(() => {
     return {
-        'border-transparent shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:ring-blue-500 dark:bg-blue-500 dark:hover:bg-blue-600':
+        'border-transparent shadow-sm text-white ':
             props.variant === 'primary',
-
+    }
+})
+const changeTheme = computed(() => {
+    if (themeStore.color === 'blue') {
+        return `bg-blue-600 hover:bg-blue-700 focus:ring-blue-500`
+    }
+    else {
+        return `bg-red-600 hover:bg-red-700 focus:ring-red-500`
     }
 })
 
-const roundedClass = computed(() => {
-    return props.rounded ? '!rounded-full' : ''
-})
+
 
 </script>
 
 <template>
 
-    <button :disabled="disabled" :class="[defaultClass, sizeClass, variantClass, roundedClass]">
+    <button :disabled="disabled" :class="[defaultClass, sizeClass, variantClass, changeTheme]">
         <slot />
 
     </button>
-  
+
 </template>

@@ -44,10 +44,7 @@ const props = defineProps({
         type: String,
         default: 'block text-sm',
     },
-    isPreset: {
-        type: [Boolean],
-        default: ''
-    }
+
 })
 
 const emit = defineEmits(['update:modelValue'])
@@ -62,8 +59,7 @@ const selected = computed({
     <RadioGroup v-model="selected" class="flex">
 
         <div class="rounded-md space-y-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-10">
-            <RadioGroupOption :id="id" v-slot="{ checked, active }" as="template" :value="value" :name="name"
-                v-bind="$attrs">
+            <RadioGroupOption :id="id" v-slot="{ checked }" as="template" :value="value" :name="name" v-bind="$attrs">
                 <div class="relative flex items-center cursor-pointer focus:outline-none">
                     <span :class="[checked && iconColor == 'blue' ? 'border-blue-600' : iconColor == 'red' ? 'border-red-600' : 'border-gray-600',
                         optionGroupClass, borderColor

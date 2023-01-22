@@ -12,8 +12,25 @@ export const useThemeStore = defineStore({
       { id: 'center', title: 'Center' },
       { id: 'disable', title: 'Disable' },
     ],
-    one: '',
-    color: 'blue'
+    logo: 'Left',
+    color: 'blue',
+    steps: [
+      { name: 'Step 1', href: '#', status: 'current', icon: 'PencilIcon' },
+      { name: 'Step 2', href: '#', status: 'upcoming', icon: 'CogIcon' },
+      { name: 'Step 3', href: '#', status: 'upcoming', icon: 'PlayIcon' },
+    ],
+
+    preset: [
+      { id: 'blue', title: 'Blue (#1976d2)' },
+      { id: 'red', title: 'Red (#ff0000)' },
+    ],
+    isHeader: true,
+    isFooter: true,
+    isDrawer: true,
+    leftDrawer: true,
+    rightDrawer: true,
+    isTab: true,
+    isMenu: true,
 
   }),
   actions: {
