@@ -1,11 +1,9 @@
 <template>
-  <div class="sticky top-0 max-w-full h-32 shadow" :class="changeColor">
+  <div class="sticky top-0 max-w-full h-32 shadow z-20" :class="changeColor">
     <div class="flex justify-between items-center h-16">
-
       <BaseIcon name="MenuIcon" class="mx-5 text-white h-5 w-5"></BaseIcon>
       <img :src=logo :class="logoStyle" v-bind:class="logoStyle">
       <BaseIcon name="MenuIcon" class="mx-5 text-white h-5 w-5"></BaseIcon>
-
     </div>
 
     <BaseTabGroup :selected-index="selectedIndex" @change="changeTabStatus">

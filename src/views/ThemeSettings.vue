@@ -1,11 +1,11 @@
 <template>
-    <div class="border border-b-2 w-min px-7 text-left mt-2 pb-4 ">
+    <div class="border border-b-2  min-h-min px-7 text-left my-2 pb-4">
         <!-- progress bar -->
         <div class="w-full">
             <nav aria-label="Progress">
                 <ol role="list" class="flex items-center">
                     <li v-for="(step, stepIdx) in themeStore.steps" :key="step.name"
-                        :class="[stepIdx !== themeStore.steps.length - 1 ? 'pr-8 sm:pr-56' : '', 'relative']">
+                        :class="[stepIdx !== themeStore.steps.length - 1 ? 'pr-16 sm:pr-56' : '', 'relative']">
 
                         <div class="absolute inset-0 flex items-center" aria-hidden="true">
                             <div class="h-0.5 w-full bg-gray-200 " />
@@ -66,6 +66,8 @@
             <BaseButton>Continue</BaseButton>
         </div>
     </div>
+
+
 </template>
 
 <script setup lang="ts">

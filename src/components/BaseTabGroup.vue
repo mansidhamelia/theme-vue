@@ -4,7 +4,7 @@
         <TabGroup :default-index="defaultIndex" @change="onChange">
             <TabList :class="[
                 'flex border-b border-grey-light',
-                'relative overflow-x-auto overflow-y-hidden',
+                'relative ',
                 'lg:pb-0 lg:ml-0',
             ]">
                 <Tab v-for="(tab, index) in tabs" v-slot="{ selected }" :key="index" as="template">
@@ -19,28 +19,19 @@
                     </button>
                 </Tab>
             </TabList>
-
-            <slot name="before-tabs" />
-
-            <TabPanels>
-                <slot />
-            </TabPanels>
         </TabGroup>
     </div>
 </template>
 
 <script setup lang="ts">
 import { computed, useSlots } from 'vue'
-import { TabGroup, TabList, Tab, TabPanels } from '@headlessui/vue'
+import { TabGroup, TabList, Tab } from '@headlessui/vue'
 const props = defineProps({
     defaultIndex: {
         type: Number,
         default: 0,
     },
-    filter: {
-        type: String,
-        default: null,
-    },
+
 })
 const emit = defineEmits(['change'])
 const slots = useSlots()

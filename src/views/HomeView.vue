@@ -1,10 +1,12 @@
 <template>
+
   <TheSiteHeader />
   <div class="flex justify-center">
-
     <ThemeSettings />
   </div>
   <TheSiteFooter />
+
+
 </template>
 
 <script lang="ts" setup>

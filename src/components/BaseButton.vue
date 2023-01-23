@@ -1,33 +1,20 @@
 <script lang="ts" setup>
-import { Ref, computed } from 'vue';
+import { computed } from 'vue';
 import { useThemeStore } from '@/store/index'
 
 const themeStore = useThemeStore()
 
 const props = defineProps({
-
-    defaultClass: {
-        type: String,
-        default:
-            'inline-flex whitespace-nowrap items-center border font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-gray-800',
-    },
-
     disabled: {
         type: Boolean,
         default: false,
     },
-
     size: {
         type: String,
         default: 'md',
         validator(value: any) {
             return ['xs', 'sm', 'md', 'lg', 'xl'].includes(value)
         },
-    },
-    variant: {
-        type: String,
-        default: 'primary',
-
     },
 })
 
@@ -41,14 +28,6 @@ const sizeClass = computed(() => {
     }
 })
 
-
-
-const variantClass = computed(() => {
-    return {
-        'border-transparent shadow-sm text-white ':
-            props.variant === 'primary',
-    }
-})
 const changeTheme = computed(() => {
     if (themeStore.color === 'blue') {
         return `bg-blue-600 hover:bg-blue-700 focus:ring-blue-500`
@@ -57,16 +36,13 @@ const changeTheme = computed(() => {
         return `bg-red-600 hover:bg-red-700 focus:ring-red-500`
     }
 })
-
-
-
 </script>
 
 <template>
-
-    <button :disabled="disabled" :class="[defaultClass, sizeClass, variantClass, changeTheme]">
+    <button
+        class="border-transparent shadow-sm text-white inline-flex whitespace-nowrap items-center border font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-gray-800"
+        :disabled="disabled" :class="[sizeClass, changeTheme]">
         <slot />
-
     </button>
 
 </template>
